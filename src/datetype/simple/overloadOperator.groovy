@@ -14,3 +14,14 @@ class B {
 def a = new B("hello")
 def b = new B(" world")
 println a - b 
+
+
+def myword = 
+'''
+every person know that,
+we are best for it!
+
+thank your!
+'''
+println myword
+def n = 1.0

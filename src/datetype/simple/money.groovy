@@ -5,6 +5,9 @@ class Money{
 		this.amount = amount
 		this.currency = currency
 	}
+	int hashCode() {
+		amount.hashCode() + currency
+	}
 	boolean equals (Object other){
 		if ( null == other) return false
 		if ( ! other instanceof Money ) return false
@@ -19,8 +22,12 @@ class Money{
 		}
 		return new Money(amount + other.amount, currency)
 	}
+	Money plus (Integer i){
+		new Money(amount + i , currency)
+	}
 }
 
 def duck = new Money(100, "USD")
 assert duck == new Money(100, "USD")
 assert duck + duck == new Money(200, "USD")
+assert duck + 100 == new Money(200, "USD")
