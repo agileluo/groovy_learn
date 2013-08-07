@@ -1,5 +1,3 @@
-import com.sun.xml.internal.fastinfoset.algorithm.BuiltInEncodingAlgorithm.WordListener;
-
 import java.util.regex.Matcher;
 
 assert "1234" ==~ /\d+/
