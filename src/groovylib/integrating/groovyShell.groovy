@@ -1,4 +1,5 @@
-import org.junit.internal.matchers.Each;
+import org.codehaus.groovy.control.CompilerConfiguration
+
 
 def shell = new GroovyShell()
 def result = shell.evaluate("12 + 3*2")
@@ -55,7 +56,7 @@ def instance = clazz.newInstance()
 assert instance.method() == "hello"
 
 def monthly = "amount * (rate/12) / (1 - (1 + rate/12)**-numberOfMonths)"
-shell = new GroovyShell();
+shell = new GroovyShell()
 def script = shell.parse(monthly)
 
 script.binding.amount = 300000
@@ -71,5 +72,17 @@ script.binding = new Binding(
 	)
 
 assert script.run() == 7835.830652583356
+
+
+binding = new Binding(multiply: { x, y -> x * y })
+shell = new GroovyShell(binding)
+def value = shell.evaluate('''
+
+	multiply(5, 6)
+''')
+assert value == 30
+
+
+
 
   
